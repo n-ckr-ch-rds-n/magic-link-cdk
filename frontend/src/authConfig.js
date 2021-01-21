@@ -1,10 +1,11 @@
 import Auth from "@aws-amplify/auth";
+import {environment} from "./environment";
 
 export const config = {
     Auth: {
         region: "eu-west-1",
-        userPoolId: "eu-west-1_3LDqyPz4q",
-        userPoolWebClientId: "68qg02gufvv2m7jpphigkjui2o",
+        userPoolId: environment.userPoolId,
+        userPoolWebClientId: environment.userPoolClientId,
         authenticationFlowType: "CUSTOM_AUTH"
     }
 };

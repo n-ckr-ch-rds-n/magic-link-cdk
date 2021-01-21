@@ -3,3 +3,4 @@ frontend/build
 .serverless
 .webpack
 package-lock.json
+frontend/src/environment.js
