@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "outDir": "lib"
+  },
+  "include": [
+    "stack"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
