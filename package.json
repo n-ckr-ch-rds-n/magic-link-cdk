@@ -1,9 +1,9 @@
 {
-  "name": "poc-better-magic-links",
+  "name": "magic-link-cdk",
   "private": true,
   "version": "1.0.0",
   "description": "A simple POC implementation of best-practice UX for magic links.",
-  "author": "Thomas Schoffelen <thomas@schof.co>",
+  "author": "Nick Richardson",
   "scripts": {
     "deploy": "cd frontend && yarn install && yarn build && cd .. && npx serverless deploy",
     "sls": "serverless"
