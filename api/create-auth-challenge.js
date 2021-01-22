@@ -1,5 +1,4 @@
 module.exports.handler = async(event) => {
-
     // This is sent back to the client app
     event.response.publicChallengeParameters = {
         email: event.request.userAttributes.email

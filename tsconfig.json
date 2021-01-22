@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
+    "target": "es6",
     "resolveJsonModule": true,
     "sourceMap": true,
     "jsx": "react",
@@ -24,6 +24,7 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "cdk.out"
   ]
 }
