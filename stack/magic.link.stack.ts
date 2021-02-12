@@ -27,29 +27,6 @@ export class MagicLinkStack extends Stack {
             scope
         });
         this.userPoolClient = this.userPoolService.generateUserPoolClient(this.userPool, stackName);
-        //
-        // const runtime = Runtime.NODEJS_12_X;
-        // const code = new AssetCode("api");
-
-        // const login = new Function(this, "Login", {
-        //     runtime,
-        //     code,
-        //     handler: `${MagicLinkLambdaName.Login}.handler`
-        // }).addEventSource(new ApiEventSource("post", "/login")) // enable CORS?
-        //
-        // const defineAuthChallenge = new Function(this, "DefineAuthChallenge", {
-        //     runtime,
-        //     code,
-        //     handler: `${MagicLinkLambdaName.DefineAuthChallenge}.handler`
-        // });
-        //
-        // const userPool = new UserPool(this, "MagicLinkUserPool", {
-        //     mfa: Mfa.OFF,
-        //     userPoolName: "magic-link-user-pool",
-        //     autoVerify: {
-        //         email: true
-        //     }
-        // });
     }
 
 }
