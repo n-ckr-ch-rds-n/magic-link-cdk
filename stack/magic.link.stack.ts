@@ -3,6 +3,7 @@ import {UserPool, UserPoolClient} from "@aws-cdk/aws-cognito";
 import {StackConfig} from "./stack.config";
 import {UserPoolService} from "./user.pool.service";
 import {LambdaService} from "./lambda.service";
+import {Bucket} from "@aws-cdk/aws-s3";
 
 export class MagicLinkStack extends Stack {
 
@@ -27,6 +28,12 @@ export class MagicLinkStack extends Stack {
             scope
         });
         this.userPoolClient = this.userPoolService.generateUserPoolClient(this.userPool, stackName);
+        const bucketName = `${stackName}-webBucket`;
+        const bucket = new Bucket(this, bucketName, {
+            bucketName,
+            websiteIndexDocument: "index.html",
+            websiteErrorDocument: "index.html"
+        });
     }
 
 }
