@@ -4,6 +4,7 @@ import {StackConfig} from "./stack.config";
 import {UserPoolService} from "./user.pool.service";
 import {LambdaService} from "./lambda.service";
 import {Bucket} from "@aws-cdk/aws-s3";
+import {RestApi, ProxyResource, Integration, AwsIntegration} from "@aws-cdk/aws-apigateway";
 
 export class MagicLinkStack extends Stack {
 
@@ -28,12 +29,26 @@ export class MagicLinkStack extends Stack {
             scope
         });
         this.userPoolClient = this.userPoolService.generateUserPoolClient(this.userPool, stackName);
-        const bucketName = `${stackName}-webBucket`;
+        const bucketName = `${stackName.toLowerCase()}-web-bucket`;
         const bucket = new Bucket(this, bucketName, {
             bucketName,
             websiteIndexDocument: "index.html",
             websiteErrorDocument: "index.html"
         });
+        const api = new RestApi(this, "foobar");
+        const integration = new AwsIntegration({
+            service: "S3",
+            path: "{bucket}",
+            options: {
+
+            }
+        });
+        api.root.addMethod("ANY", integration);
+
+        // api.root.addProxy({
+        //     anyMethod: false,
+        //     defaultIntegration: new Integration()
+        // })
     }
 
 }
