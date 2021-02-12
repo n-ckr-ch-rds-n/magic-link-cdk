@@ -3,9 +3,13 @@ import {AssetCode, Function, Runtime} from "@aws-cdk/aws-lambda";
 import {ApiEventSource} from "@aws-cdk/aws-lambda-event-sources";
 import {Mfa, UserPool} from "@aws-cdk/aws-cognito";
 import {StackConfig} from "./stack.config";
+import {UserPoolService} from "./user.pool.service";
+import {LambdaService} from "./lambda.service";
 
 export class MagicLinkStack extends Stack {
-    constructor(app: App, id: string, props?: StackConfig & StackProps) {
+    constructor(app: App, id: string, props: StackConfig & StackProps,
+                private userPoolService: UserPoolService,
+                private lambdaService: LambdaService) {
         super(app, id, props);
 
         const runtime = Runtime.NODEJS_12_X;
