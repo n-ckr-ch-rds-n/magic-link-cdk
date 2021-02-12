@@ -31,7 +31,7 @@ export class LambdaService {
         return new Function(request.scope, `${request.stackName}-${request.lambdaName}`, {
             runtime: this.runtime,
             code: request.code,
-            handler: `bundle.handlers.${request.lambdaName}`
+            handler: `${request.lambdaName}.handler`
         })
     }
 

@@ -46,7 +46,9 @@ export class UserPoolService {
         oAuth: {
             flows: {implicitCodeGrant: true},
             scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
-            callbackUrls: [] // TODO
+            callbackUrls: [
+                "http://localhost:3001/auth/callback"
+            ]
         },
         supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO]
     };
